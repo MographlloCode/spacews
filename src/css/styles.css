@@ -1,9 +1,11 @@
 .page-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr auto;
   gap: 1rem;
   margin: 0;
   height: 100vh;
+  min-height: 100%;
   background: linear-gradient(
     90deg,
     rgba(110, 0, 164, 1) 0%,
@@ -23,6 +25,7 @@
 
 .page-header {
   grid-column: 2 / 12;
+  height: fit-content;
 }
 
 .page-header_nav {
@@ -52,6 +55,14 @@
   align-items: center;
   justify-items: center;
   width: 100%;
+}
+
+.page-main__title {
+  grid-column: 1/13;
+}
+
+.page-main__content {
+  grid-column: 1/13;
 }
 
 /* Page News */
@@ -113,6 +124,7 @@
 .page-footer {
   grid-column: 1 / 13;
   display: grid;
+  height: fit-content;
   padding: 1rem;
   color: whitesmoke;
 }
@@ -173,6 +185,55 @@
   font-size: 1rem;
   text-align: justify;
   line-height: 1.5;
+}
+
+/* Article Info Page */
+
+.page-main__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.page-main__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.page-main__form-label {
+  font-family: "Space Mono", monospace;
+    color: white;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.page-main__form-input {
+  font-family: "Montserrat", sans-serif;
+  color: #2c2c2c;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  padding: 0.5rem ;
+  border-radius: .5rem;
+  border: none;
+}
+
+.page-main__form-input-file {
+  display: none;
+}
+
+.file-input {
+  background: rgb(181, 43, 216);
+  border-radius: .5rem;
+  padding: .5rem;
+}
+
+.input-shadow {
+  -webkit-box-shadow: 3px 12px 25px 7px rgba(34, 34, 34, 0.1);
+  -moz-box-shadow: 3px 12px 25px 7px rgba(255, 255, 255, 0.1);
+  box-shadow: 3px 12px 25px 7px rgba(255, 255, 255, 0.1);
 }
 
 @media only screen and (min-width: 200px) {
@@ -242,6 +303,7 @@
     line-height: 1;
     grid-column: 1 / 13;
     color: white;
+    word-wrap: break-word;
   }
 
   .page-main_cta p span {
@@ -250,6 +312,113 @@
     color: whitesmoke;
     border-radius: 8px;
     box-shadow: 0rem 0.3rem 0.9rem rgba(0, 0, 0, 0.15);
+  }
+
+    .page-content {
+      display: flex;
+      grid-column: 1/13;
+      justify-content: space-around;
+      align-items: center;
+      width: 100vw;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .delete {
+      background: red;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      padding: .5rem 1rem;
+  font-family: "Montserrat", sans-serif;
+    }
+
+    .edit {
+      background: blueviolet;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+  font-family: "Montserrat", sans-serif;
+   padding: .5rem 1rem;
+    }
+
+  .margin {
+    margin: 2rem;
+  }
+
+  .page-main__info {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/7;
+    grid-row: 1;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .page-main__login {
+    display: grid;
+    grid-column: 6/13;
+    grid-row: 1;
+  }
+
+  .page-main__login-link {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    text-decoration: none;
+  }
+
+  .page-main__login-link span {
+    font-weight: 600;
+  }
+
+  .page-main__login-box {
+    background: rgba(160, 0, 199, 1);
+    border-radius: .5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page-main__login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .box-shadow {
+    -webkit-box-shadow: 3px 12px 25px 7px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 3px 12px 25px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 12px 25px 7px rgba(0, 0, 0, 0.1);
+  }
+
+  .page-main__info-title {
+      font-family: "Space Mono", monospace;
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1.5;
+      color: whitesmoke;
+      text-shadow: 0rem 0.3rem 0.9rem rgba(0, 0, 0, 0.15);
+  }
+
+  .page-main__info-subtitle {
+    font-size: 1.2rem;
+      margin: 0;
+      line-height: 1;
+      grid-column: 1 / 13;
+      color: white;
+      word-wrap: break-word;
+  }
+
+  .page-main__info-subtitle span {
+    background-color: transparent;
+      padding: 0.5rem;
+      color: whitesmoke;
+      border-radius: 8px;
+      box-shadow: 0rem 0.3rem 0.9rem rgba(0, 0, 0, 0.15);
   }
 
   .page-main_news {
@@ -270,6 +439,8 @@
 }
 
 @media only screen and (min-width: 600px) {
+
+
   .page-main_news {
     grid-column: 2 / 12;
     gap: 2rem;
